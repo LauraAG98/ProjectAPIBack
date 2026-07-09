@@ -1,6 +1,6 @@
 import express from 'express';
 import cors from 'cors';
-import { router } from './routes/Characters.route';
+import { router } from '../src/routes/Characters.route.js';
 
 //Se inicializa express
 const app = express();
@@ -17,4 +17,4 @@ app.listen(PORT, ()=> {
 })
 
 //App decide a que ruta decide enviar la petición
-app.use('/characters', router)
+app.use('/Characters', router)

@@ -9,4 +9,4 @@ async function getCharactersService(page) {
 }
 
 //Se exporta para poder ser usada o llamada desde otra clase
-export {getCharactersService};
+export { getCharactersService };
