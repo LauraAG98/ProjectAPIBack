@@ -1,5 +1,6 @@
 import express from 'express';
 import cors from 'cors';
+import { router } from './routes/Characters.route';
 
 //Se inicializa express
 const app = express();
@@ -8,9 +9,12 @@ const app = express();
 app.use(cors());
 
 //Se crea constante que contiene el número de puerto
-const PORT = process.env.port || 3000;
+const PORT = process.env.PORT || 3001;
 
 //Se agrega mensaje de confirmación
 app.listen(PORT, ()=> {
-    console.log("Servidor corriendo en el puerto 3000");
+    console.log(`Servidor corriendo en el puerto ${PORT}`);
 })
+
+//App decide a que ruta decide enviar la petición
+app.use('/characters', router)
