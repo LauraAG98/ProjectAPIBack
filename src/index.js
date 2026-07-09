@@ -8,7 +8,7 @@ const app = express();
 app.use(cors());
 
 //Se crea constante que contiene el número de puerto
-const PORT = 3000;
+const PORT = process.env.port || 3000;
 
 //Se agrega mensaje de confirmación
 app.listen(PORT, ()=> {
