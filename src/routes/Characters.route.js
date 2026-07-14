@@ -3,11 +3,11 @@ import { getCharactersController, getCharacterControllerId } from '../controller
 import express from 'express';
 
 //Se inicializa el router
-const router = express.Router();
+const routerCharacters = express.Router();
 
 //Cuando llegue una petición, se ejecuta el controller
-router.get('/', getCharactersController );
-router.get('/:id', getCharacterControllerId);
+routerCharacters.get('/', getCharactersController );
+routerCharacters.get('/:id', getCharacterControllerId);
 
 //Se exporta el router
-export { router };
+export { routerCharacters };
