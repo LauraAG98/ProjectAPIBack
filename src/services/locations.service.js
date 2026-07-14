@@ -28,4 +28,19 @@ async function getLocationById(id) {
     return data;
 }
 
-export { getLocations, getLocationById }
+//Función asíncrona
+async function getLocationsByIds(ids) {
+    //Constante que obtiene url de la API
+    const url = `https://rickandmortyapi.com/api/location/${ids.join(',')}`;
+
+    //Constante que guarda respuesta de la petición
+    const res = await fetch(url);
+
+    //Se convierte a formato JSON
+    const data = res.json();
+
+    //Se devuelve la respuesta
+    return data;
+}
+
+export { getLocations, getLocationById, getLocationsByIds }
