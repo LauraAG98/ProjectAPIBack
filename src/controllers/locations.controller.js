@@ -1,6 +1,6 @@
-import { getLocations } from "../services/locations.service.js";
+import { getLocations, getLocationById } from "../services/locations.service.js";
 
-//Función asíncrona para 
+//Función asíncrona
 async function getControllerLocations(req, res) {
     //Constante que guarda el parámetro de la petición
     const pageRequest = req.query.page;
@@ -12,4 +12,16 @@ async function getControllerLocations(req, res) {
     res.json(responsePage);
 }
 
-export { getControllerLocations }
+//Función asíncrona
+async function getControllerLocationById(req, res) {
+    //Constante que contiene parámetro
+    const idRequest = req.params.id;
+
+    //Constante que guarda el parámetro de la petición
+    const responseId = await getLocationById(idRequest);
+
+    //Se envia respuesta en formato JSON
+    res.json(responseId);
+}
+
+export { getControllerLocations, getControllerLocationById }
