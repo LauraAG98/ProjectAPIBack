@@ -48,10 +48,10 @@ async function getCharacterControllerId(req, res) {
     const idRequest = req.params.id;
 
     //Se guarda la respuesta del servicio en una constante
-    const respondeId = await getCharacterById(idRequest);
+    const responseId = await getCharacterById(idRequest);
 
     //Se envía la respuesta en formato JSON
-    res.json(respondeId);
+    res.json(responseId);
 }
 
 //Se exporta la función asíncrona

@@ -9,10 +9,10 @@ async function getEpisodesController(req, res) {
     //Condición que identifica el parámetro 
     if (pageRequest) {
         //Se obtiene el parámetro desde el servicio
-        const respondePage = await getEpisodes(pageRequest);
+        const responsePage = await getEpisodes(pageRequest);
 
         //Se convierte la respuesta en formato JSON 
-        res.json(respondePage);
+        res.json(responsePage);
     } else if (nameRequest) {
         //Se obtiene el parámetro desde el servicio
         const responseName = await getEpisodesByName(nameRequest); 
@@ -30,10 +30,10 @@ async function getEpisodeControllerById(req, res) {
     const idRequest = req.params.id;
 
     //Respuesta que se obtiene desde el servicio 
-    const respondeId = await getEpisodeById(idRequest);
+    const responseId = await getEpisodeById(idRequest);
 
     //Se obtiene el resultado en formato JSON
-    res.json(respondeId)
+    res.json(responseId)
 }
 
 //Se exporta la función
