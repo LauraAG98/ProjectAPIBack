@@ -28,4 +28,19 @@ async function getEpisodeById(id) {
     return data;
 }
 
-export { getEpisodes, getEpisodeById }
+//Función asíncrona para obtener episodio por nombre
+async function getEpisodesByName(name) {
+    //Constante que guarda la url de la API
+    const url = await `https://rickandmortyapi.com/api/episode?name=${name}`;
+
+    //Se realiza la petición
+    const res = await fetch(url);
+
+    //Se convierte la respuesta en formato JSON
+    const date = await res.json();
+
+    //Se devuelve la respuesta de la API
+    return date;
+}
+
+export { getEpisodes, getEpisodeById, getEpisodesByName }
