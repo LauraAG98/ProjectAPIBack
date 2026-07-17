@@ -1,12 +1,12 @@
-//Función async que realiza petición a la API
+//Función asincrona que realiza petición a la API
 async function getCharactersService(page) {
-    //Constante que realiza la solicitud y obtiene respuesta de la url.
+    //Constante que guarda la url de la API.
     const url = `https://rickandmortyapi.com/api/character?page=${page}`;
 
     //Solicita y espera respuesta de la url.
     const res = await fetch(url);
 
-    //Obtiene y guarda la información recibida en formato JSON 
+    //Obtiene y guarda la respuesta recibida en formato JSON 
     const data = await res.json();
 
     //Retorna la respuesta recibida

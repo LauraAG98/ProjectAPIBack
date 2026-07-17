@@ -9,36 +9,29 @@ async function getCharactersController(req, res) {
     const genderRequest = req.query.gender;
 
     //Condición que permite seguir el flujo adecuado dependiendo del parámetro obtenido.
+    //Las respuestas se obtienen en formato JSON
     if (pageRequest) {
-        //Se guarda la respuesta de la API en una constante.
         const response = await getCharactersService(pageRequest);
 
-        //Se envía la respuesta en formato JSON.
         res.json(response);
 
     } else if (nameRequest) {
-        //Se guarda la respuesta de la API en una constante.
         const responseName = await getCharacterByName(nameRequest);
 
-        //Se envía la respuesta en formato JSON.
         res.json(responseName);
 
     } else if (statusRequest){
-        //Se guarda la respuesta de la API en una constante.
         const responseStatus = await getCharacterByStatus(statusRequest);
 
-        //Se envía la respuesta en formato JSON.
         res.json(responseStatus);
 
     } else if (genderRequest) {
-        //Se guarda la respuesta de la API en una constante.
         const responseGender = await getCharacterByGender(genderRequest);
 
-        //Se envía la respuesta en formato JSON.
         res.json(responseGender);
 
     } else {
-        //En caso de no ser encontrado se envía mensaje
+        //En caso de no ser encontrado se envía mensaje de error
         res.status(404).json({error: 'Not found'});
     }
 }

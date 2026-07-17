@@ -6,25 +6,22 @@ async function getEpisodesController(req, res) {
     const pageRequest = req.query.page;
     const nameRequest = req.query.name;
 
-    //Condición que identifica el parámetro 
+    //Condición que permite seguir el flujo adecuado dependiendo del parámetro obtenido.
+    //Las respuestas se obtienen en formato JSON
     if (pageRequest) {
-        //Se obtiene el parámetro desde el servicio
         const responsePage = await getEpisodes(pageRequest);
 
-        //Se convierte la respuesta en formato JSON 
         res.json(responsePage);
     } else if (nameRequest) {
-        //Se obtiene el parámetro desde el servicio
         const responseName = await getEpisodesByName(nameRequest); 
 
-        //Se convierte la respuesta en formato JSON
         res.json(responseName);
     } else {
         res.status(404).json({error: 'Not found'});
     }
 }
 
-//Función asíncrona
+//Función asíncrona que realiza petición y obtiene respuesta por Id al servicio
 async function getEpisodeControllerById(req, res) {
     //Guarda el parámetro de la petición
     const idRequest = req.params.id;
@@ -32,7 +29,7 @@ async function getEpisodeControllerById(req, res) {
     //Respuesta que se obtiene desde el servicio 
     const responseId = await getEpisodeById(idRequest);
 
-    //Se obtiene el resultado en formato JSON
+    //Se obtiene y devuelve el resultado en formato JSON
     res.json(responseId)
 }
 

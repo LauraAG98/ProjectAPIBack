@@ -6,7 +6,7 @@ async function getLocations(page) {
     //Se realiza petición a la API
     const res = await fetch(url);
 
-    //Se convierte en formato JSON
+    //Guarda y convierte a formato JSON la respuesta de la API
     const data = res.json();
 
     //Se regresa la respuesta
@@ -21,7 +21,7 @@ async function getLocationById(id) {
     //Petición que se realiza a la API
     const res = await fetch(url);
 
-    //Se convierte en formato JSON
+    //Guarda y convierte a formato JSON la respuesta de la API
     const data = res.json();
 
     //Se devuelve la respuesta
@@ -36,11 +36,12 @@ async function getLocationsByIds(ids) {
     //Constante que guarda respuesta de la petición
     const res = await fetch(url);
 
-    //Se convierte a formato JSON
+    //Guarda y convierte a formato JSON la respuesta de la API
     const data = res.json();
 
     //Se devuelve la respuesta
     return data;
 }
 
+//Se exportan las funciones para que puedan ser importadas desde otra clase
 export { getLocations, getLocationById, getLocationsByIds }
