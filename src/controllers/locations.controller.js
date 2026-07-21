@@ -3,25 +3,25 @@ import { getLocations, getLocationById, getLocationsByIds } from "../services/lo
 //Funciones asíncronas que guardan el parámetro de la petición
 //Se envía la respuesta del servicio en formato JSON
 async function getControllerLocations(req, res) {
-    const pageRequest = req.query.page;
+    const { page } = req.query;
 
-    const responsePage = await getLocations(pageRequest);
+    const responsePage = await getLocations(page);
 
     res.json(responsePage);
 }
 
 async function getControllerLocationById(req, res) {
-    const idRequest = req.params.id;
+    const { id } = req.params;
 
-    const responseId = await getLocationById(idRequest);
+    const responseId = await getLocationById(id);
 
     res.json(responseId);
 }
 
 async function getControllerLocationByIds(req, res) {
-    const idsRequest = res.params.ids;
+    const { ids } = res.params;
 
-    const responseIds = await getControllerLocationByIds(idsRequest);
+    const responseIds = await getControllerLocationByIds(ids);
 
     res.json(responseIds);
 }

@@ -1,4 +1,6 @@
 import express from 'express';
+import dotenv from 'dotenv';
+dotenv.config();
 import cors from 'cors';
 import { routerCharacters } from './routes/Characters.route.js'; 
 import { routerEpisodes } from './routes/episodes.route.js';
@@ -6,6 +8,8 @@ import { routerLocations } from './routes/locations.route.js';
 
 //Se inicializa express
 const app = express();
+const x = process.env.SECRETURL;
+console.log('Contraseña: ', x);
 
 //Se usan los cors para permitir peticiones desde otro puerto
 app.use(cors());

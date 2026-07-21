@@ -3,17 +3,16 @@ import { getEpisodes, getEpisodeById, getEpisodesByName } from "../services/epis
 //Función que obtiene el parámetro de la petición
 async function getEpisodesController(req, res) {
     //Constante que guarda el parámetro de la petición
-    const pageRequest = req.query.page;
-    const nameRequest = req.query.name;
+    const {page, name} = req.query
 
     //Condición que permite seguir el flujo adecuado dependiendo del parámetro obtenido.
     //Las respuestas se obtienen en formato JSON
-    if (pageRequest) {
-        const responsePage = await getEpisodes(pageRequest);
+    if (page) {
+        const responsePage = await getEpisodes(page);
 
         res.json(responsePage);
-    } else if (nameRequest) {
-        const responseName = await getEpisodesByName(nameRequest); 
+    } else if (name) {
+        const responseName = await getEpisodesByName(name); 
 
         res.json(responseName);
     } else {
@@ -24,10 +23,10 @@ async function getEpisodesController(req, res) {
 //Función asíncrona que realiza petición y obtiene respuesta por Id al servicio
 async function getEpisodeControllerById(req, res) {
     //Guarda el parámetro de la petición
-    const idRequest = req.params.id;
+    const { id } = req.params;
 
     //Respuesta que se obtiene desde el servicio 
-    const responseId = await getEpisodeById(idRequest);
+    const responseId = await getEpisodeById(id);
 
     //Se obtiene y devuelve el resultado en formato JSON
     res.json(responseId)

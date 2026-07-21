@@ -3,30 +3,27 @@ import { getCharactersService, getCharacterById, getCharacterByName, getCharacte
 
 async function getCharactersController(req, res) {
     //Se obtiene el parámetro de la petición
-    const pageRequest = req.query.page;
-    const nameRequest = req.query.name;
-    const statusRequest = req.query.status;
-    const genderRequest = req.query.gender;
+    const { page, name, status, gender } = req.query;
 
     //Condición que permite seguir el flujo adecuado dependiendo del parámetro obtenido.
     //Las respuestas se obtienen en formato JSON
-    if (pageRequest) {
-        const response = await getCharactersService(pageRequest);
+    if (page) {
+        const response = await getCharactersService(page);
 
         res.json(response);
 
-    } else if (nameRequest) {
-        const responseName = await getCharacterByName(nameRequest);
+    } else if (name) {
+        const responseName = await getCharacterByName(name);
 
         res.json(responseName);
 
-    } else if (statusRequest){
-        const responseStatus = await getCharacterByStatus(statusRequest);
+    } else if (status){
+        const responseStatus = await getCharacterByStatus(status);
 
         res.json(responseStatus);
 
-    } else if (genderRequest) {
-        const responseGender = await getCharacterByGender(genderRequest);
+    } else if (gender) {
+        const responseGender = await getCharacterByGender(gender);
 
         res.json(responseGender);
 
@@ -38,10 +35,10 @@ async function getCharactersController(req, res) {
 
 async function getCharacterControllerId(req, res) {
     //Se obtiene el parámetro enviado en la petición
-    const idRequest = req.params.id;
+    const { id } = req.params;
 
     //Se guarda la respuesta del servicio en una constante
-    const responseId = await getCharacterById(idRequest);
+    const responseId = await getCharacterById(id);
 
     //Se envía la respuesta en formato JSON
     res.json(responseId);
