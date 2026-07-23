@@ -10,7 +10,7 @@ async function getCharactersService(page) {
     const data = await res.json();
 
     //Retorna la respuesta recibida
-    return data;
+    return data
 }
 
 //Función asíncrona que obtiene personaje por Id

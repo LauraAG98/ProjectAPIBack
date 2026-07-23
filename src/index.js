@@ -13,7 +13,7 @@ console.log('Contraseña: ', x);
 
 //Se usan los cors para permitir peticiones desde otro puerto
 app.use(cors());
-//App decide a que ruta decide enviar la petición
+//App decide a que ruta envia la petición
 app.use('/character', routerCharacters);
 app.use('/episode', routerEpisodes);
 app.use('/location', routerLocations);

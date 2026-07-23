@@ -19,9 +19,9 @@ async function getControllerLocationById(req, res) {
 }
 
 async function getControllerLocationByIds(req, res) {
-    const { ids } = res.params;
+    const { ids } = req.params;
 
-    const responseIds = await getControllerLocationByIds(ids);
+    const responseIds = await getLocationsByIds(ids);
 
     res.json(responseIds);
 }

@@ -31,7 +31,7 @@ async function getLocationById(id) {
 //Función asíncrona
 async function getLocationsByIds(ids) {
     //Constante que obtiene url de la API
-    const url = `https://rickandmortyapi.com/api/location/${ids.join(',')}`;
+    const url = `https://rickandmortyapi.com/api/location/${ids}`;
 
     //Constante que guarda respuesta de la petición
     const res = await fetch(url);

@@ -6,8 +6,8 @@ import { logger } from '../middlewares/logger.js';
 const routerEpisodes = express.Router();
 
 //Cuando llegue una petición se ejecuta el controller
-routerEpisodes.get('/', [logger], getEpisodesController);
-routerEpisodes.get('/:id', [logger], getEpisodeControllerById);
+routerEpisodes.get('/', getEpisodesController);
+routerEpisodes.get('/:id', getEpisodeControllerById);
 
 //Se exporta el router
 export { routerEpisodes }

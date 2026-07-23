@@ -6,9 +6,11 @@ import { logger } from '../middlewares/logger.js';
 //Se inicializa el router
 const routerCharacters = express.Router();
 
+routerCharacters.use(logger);
+
 //Cuando llegue una petición, se ejecuta el controller
-routerCharacters.get('/', [logger] , getCharactersController );
-routerCharacters.get('/:id', [logger], getCharacterControllerId);
+routerCharacters.get('/', getCharactersController);
+routerCharacters.get('/:id', getCharacterControllerId);
 
 //Se exporta el router
 export { routerCharacters };
